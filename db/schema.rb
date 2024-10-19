@@ -18,11 +18,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_19_133551) do
   create_table "contents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
     t.string "video", null: false
-    t.integer "size", null: false
+    t.integer "size"
     t.uuid "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_contents_on_course_id"
+    t.index ["title", "course_id"], name: "index_contents_on_title_and_course_id", unique: true
   end
 
   create_table "courses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
