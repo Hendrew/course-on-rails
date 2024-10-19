@@ -19,8 +19,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_19_133551) do
     t.string "title", null: false
     t.string "video", null: false
     t.integer "size", null: false
+    t.uuid "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_contents_on_course_id"
   end
 
   create_table "courses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_19_133551) do
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_courses_on_title", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -45,4 +48,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_19_133551) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "contents", "courses"
 end
