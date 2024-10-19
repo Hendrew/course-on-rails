@@ -18,7 +18,12 @@
     <%= vite_javascript_tag "backoffice" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-dark">
+    <%= render "layouts/backoffice/shared/nav" %>
+    <%= render "layouts/backoffice/shared/flash" %>
+    <main class="bg-white">
+      <%= yield %>
+    </main>
+    <%= render "layouts/backoffice/shared/footer" %>
   </body>
 </html>

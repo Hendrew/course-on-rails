@@ -18,7 +18,12 @@
     <%= vite_javascript_tag "front" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-dark">
+    <%= render "layouts/front/shared/nav" %>
+    <%= render "layouts/front/shared/flash" %>
+    <main class="bg-light">
+      <%= yield %>
+    </main>
+    <%= render "layouts/front/shared/footer" %>
   </body>
 </html>
