@@ -62,3 +62,5 @@ end
 
 gem "sassc-rails", "~> 2.1"
 gem "vite_rails", "~> 3.0"
+
+gem "devise", "~> 4.9"
