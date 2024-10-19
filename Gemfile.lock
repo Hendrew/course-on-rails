@@ -348,6 +348,9 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.1)
   rspec-rails (~> 7.0)
+  rubocop (~> 1.67)
+  rubocop-performance (~> 1.22)
+  rubocop-rails (~> 2.26)
   rubocop-rails-omakase
   sassc-rails (~> 2.1)
   selenium-webdriver (~> 4.25)

@@ -1,8 +1,76 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+require:
+  - rubocop-performance
+  - rubocop-rails
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  TargetRubyVersion: 3.3.5
+  SuggestExtensions: false
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'storage/**/*'
+    - 'public/**/*'
+    - 'lib/tasks/**/*'
+    - 'app/channels/application_cable/connection.rb'
+    - 'app/jobs/application_job.rb'
+    - 'app/mailers/application_mailer.rb'
+    - 'Gemfile.lock'
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'test/**/*.rb'
+  Max: 25
+
+Metrics/MethodLength:
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 16
+
+Metrics/ClassLength:
+  Max: 100
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'db/migrate/**/*'
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - 'app/helpers/**/*'
+
+# Layout/IndentationConsistency:
+#   EnforcedStyle: indented_internal_methods
+
+Layout/IndentationWidth:
+  Width: 2
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
