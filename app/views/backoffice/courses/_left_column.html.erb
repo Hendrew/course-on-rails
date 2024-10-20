@@ -1,14 +1,14 @@
 <div class="col-md-4 order-2 order-md-2">
   <ul class="list-group">
     <li class="list-group-item p-0">
-      <%= link_to backoffice_course_path(course), class: "text-body text-decoration-none d-block py-2 px-3" do %>
+      <%= link_to backoffice_course_path(course), class: "text-body text-decoration-none d-block py-2 px-3 #{content.nil? ? "bg-light" : ""}" do %>
         <h5 class="my-2">Course information</h5>
       <% end %>
     </li>
-    <% course.contents.order(created_at: :asc).each do |content| %>
+    <% course.contents.order(created_at: :asc).each do |cont| %>
     <li class="list-group-item p-0">
-      <%= link_to backoffice_course_path(course, content_id: content.id), class: "text-body text-decoration-none d-block py-2 px-3" do %>
-        <h5 class="my-2"><%= content.title %></h5>
+      <%= link_to backoffice_course_path(course, content_id: cont.id), class: "text-body text-decoration-none d-block py-2 px-3 #{content&.id == cont&.id ? "bg-light" : ""}" do %>
+        <h5 class="my-2"><%= cont.title %></h5>
       <% end %>
     </li>
     <% end %>

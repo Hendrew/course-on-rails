@@ -14,11 +14,11 @@
   <div class="container">
     <% if @course.contents.any? %>
       <div class="row gy-4">
-        <%= render "left_column", course: @course %>
-        <%= render "right_column", course: @course, content: @content %>
+        <%= render "left_column", { course: @course, content: @content } %>
+        <%= render "right_column", { course: @course, content: @content } %>
       </div>
     <% else %>
-      <%= render "main_data", course: @course, content: nil %>
+      <%= render "main_data", { course: @course, content: nil } %>
     <% end %>
   </div>
 </div>

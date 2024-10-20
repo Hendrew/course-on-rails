@@ -2,11 +2,11 @@
   <div class="container">
     <% if @course.contents.any? %>
       <div class="row gy-4">
-        <%= render "left_column", course: @course %>
-        <%= render "right_column", course: @course, content: @content %>
+        <%= render "left_column", { course: @course, content: @content } %>
+        <%= render "right_column", { course: @course, content: @content, previous_content: @previous_content, next_content: @next_content } %>
       </div>
     <% else %>
-      <%= render "main_data", course: @course, content: nil %>
+      <%= render "main_data", { course: @course, content: nil, previous_content: nil, next_content: nil } %>
     <% end %>
   </div>
 </div>

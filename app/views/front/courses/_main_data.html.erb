@@ -17,6 +17,15 @@
             <source src="<%= asset_path(content.video.url) %>" type="<%= content.video.content_type %>">
           </video>
         </div>
+        <div class="card-footer bg-white text-center">
+          <% if previous_content.present? %>
+            <%= link_to "Previous", course_path(@course, content_id: previous_content.id), class: "btn btn-outline-secondary", alt: "previous" %>
+          <% end %>
+
+          <% if next_content.present? %>
+            <%= link_to "Next", course_path(@course, content_id: next_content.id), class: "btn btn-outline-secondary", alt: "next" %>
+          <% end %>
+        </div>
       </div>
     <% else %>
       <h4>Description</h4>

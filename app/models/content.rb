@@ -11,4 +11,12 @@ class Content < ApplicationRecord
   before_save do
     self.video_size = video.size
   end
+
+  def next_content(course)
+    course.contents.where("created_at > ?", created_at).order(created_at: :asc).first
+  end
+
+  def previous_content(course)
+    course.contents.where("created_at < ?", created_at).order(created_at: :desc).first
+  end
 end

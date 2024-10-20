@@ -9,6 +9,8 @@ module Front
 
     def show
       @content = @course.contents.find_by(id: params[:content_id])
+      @previous_content = @content&.previous_content(@course)
+      @next_content = @content&.next_content(@course)
     end
 
     private
