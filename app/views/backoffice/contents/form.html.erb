@@ -1,0 +1,38 @@
+<div class="bg-white py-4 border-bottom">
+  <div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+      <div>
+        <h2 class="h2"><%= @content.new_record? ? "New" : "Edit" %> content</h2>
+        <h4 class="text-secondary">For the <%= @course.title %> course</h4>
+      </div>
+      <%= link_to "Go back", backoffice_course_path(@course), class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
+
+<%= render "backoffice/shared/form_errors", record: @content %>
+
+<div class="py-5 bg-light">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with(model: [:backoffice, @course, @content]) do |form| %>
+          <div class="mb-3">
+            <%= form.label :title, nil, class: "form-label is-required" %>
+            <%= form.text_field :title, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :video, nil, class: "form-label is-required" %>
+            <%= form.file_field :video, class: "form-control" %>
+            <%= form.hidden_field :video_cache %>
+          </div>
+
+          <div class="mt-3 text-center">
+            <%= form.submit nil, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class CreateContents < ActiveRecord::Migration[7.2]
     create_table :contents, id: :uuid do |t|
       t.string      :title,   null: false
       t.string      :video,   null: false
-      t.integer     :size
+      t.integer     :video_size
       t.references  :course,  null: false, foreign_key: true, type: :uuid
 
       t.timestamps

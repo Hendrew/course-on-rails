@@ -1,0 +1,27 @@
+<div class="card mb-4">
+  <div class="card-body text-center">
+    <h4><%= course.title %></h4>
+    <strong>End date</strong>: <%= course.end_date %>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <% if content.present? %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <video controls class="responsive-video">
+            <source src="<%= asset_path(content.video.url) %>" type="<%= content.video.content_type %>">
+          </video>
+        </div>
+        <div class="card-footer bg-white text-center">
+          <%= link_to "Edit", edit_backoffice_course_content_path(course, content), class: "btn btn-outline-secondary", alt: "edit" %>
+          <%= link_to "Delete", backoffice_course_content_path(course, content), action: :destroy,
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-secondary" %>
+        </div>
+      </div>
+    <% else %>
+      <h4>Description</h4>
+      <%= course.description.gsub("\n", "<br>").html_safe %>
+    <% end %>
+  </div>
+</div>

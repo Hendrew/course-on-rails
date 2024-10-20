@@ -3,6 +3,7 @@
 module Backoffice
   class CoursesController < BackofficeController
     before_action :find_course, only: %i[show edit update destroy]
+    before_action :load_content, only: %i[show]
 
     # GET /backoffice/courses
     def index
@@ -15,6 +16,7 @@ module Backoffice
       render :form
     end
 
+    # GET /backoffice/courses/:id
     def show; end
 
     # GET /backoffice/courses/:id/edit
@@ -52,6 +54,10 @@ module Backoffice
 
     def find_course
       @course = Course.find(params[:id])
+    end
+
+    def load_content
+      @content = Content.find_by(id: params[:content_id])
     end
 
     def course_params
