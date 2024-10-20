@@ -67,7 +67,7 @@ module Backoffice
     end
 
     def load_content
-      @content = Content.find_by(id: params[:content_id])
+      @content = @course.contents.find_by(id: params[:content_id])
     end
 
     def course_params
