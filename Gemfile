@@ -60,9 +60,10 @@ group :test do
   gem "shoulda-matchers", "~> 6.4"
 end
 
+gem "carrierwave", "~> 3.0"
+gem "csv", "~> 3.3"
+gem "devise", "~> 4.9"
+gem "prawn", "~> 2.5"
+gem "prawn-table", "~> 0.2.2"
 gem "sassc-rails", "~> 2.1"
 gem "vite_rails", "~> 3.0"
-
-gem "devise", "~> 4.9"
-
-gem "carrierwave", "~> 3.0"
