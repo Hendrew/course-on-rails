@@ -1,0 +1,17 @@
+<% if record.errors.any? %>
+<div class="bg-light pt-5">
+  <div class="container">
+    <div class="alert alert-danger m-0">
+      <h3 class="h5 m-0">Sorry, but we couldn't save it:
+      <%= record.errors.count %>
+      <%= record.errors.count == 1 ? "error" : "errors" %></h3>
+
+      <ul class="pt-2 pb-0 m-0">
+        <% record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>

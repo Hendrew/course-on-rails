@@ -1,0 +1,25 @@
+<tr id="<%= dom_id course %>" class="align-middle">
+  <td><%= course.title %></td>
+  <td><%= course.end_date %></td>
+  <td>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Actions
+      </button>
+      <ul class="dropdown-menu position-fixed">
+        <li>
+          <%= link_to "Show", backoffice_course_path(course), class: "dropdown-item", alt: "show" %>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <%= link_to "Edit", edit_backoffice_course_path(course), class: "dropdown-item", alt: "edit" %>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <%= link_to "Delete", backoffice_course_path(course), action: :destroy,
+              data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "dropdown-item" %>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>

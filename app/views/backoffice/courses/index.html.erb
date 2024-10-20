@@ -1,7 +1,8 @@
 <div class="bg-white py-4 border-bottom">
   <div class="container">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center flex-wrap flex-md-nowrap">
-      <h2 class="h2 mb-3 m-md-0">Home</h2>
+      <h2 class="h2 mb-3 m-md-0">Courses</h2>
+      <%= link_to "New", new_backoffice_course_path, class: "btn btn-outline-primary", alt: "new" %>
     </div>
   </div>
 </div>
@@ -10,7 +11,25 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <p class="m-0">Keep going!</p>
+        <div class="table-responsive">
+          <table class="table table-bordered mb-0">
+            <thead>
+              <tr>
+                <th>Title</th> <th colspan="2">End date</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @courses.each do |course| %>
+                <%= render course %>
+              <% end %>
+
+              <% if @courses.length.zero? %>
+                <tr><td colspan="2">No courses found.</td></tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
