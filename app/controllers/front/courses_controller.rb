@@ -18,7 +18,9 @@ module Front
     end
 
     def check_end_date
-      redirect_to(root_path, alert: "Course not found") if @course.end_date.end_of_day < Date.current.beginning_of_day
+      return unless @course.nil? || (@course.end_date.end_of_day < Date.current.beginning_of_day)
+
+      redirect_to(root_path, alert: "Course not found")
     end
   end
 end
