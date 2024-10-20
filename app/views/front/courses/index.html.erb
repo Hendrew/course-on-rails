@@ -4,7 +4,23 @@
 
   <div class="card mt-5">
     <div class="card-body">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi dignissimos iure omnis neque accusamus, voluptate aliquam suscipit facilis voluptatibus amet voluptatem numquam quibusdam, voluptas cupiditate obcaecati sit saepe iste? Alias.
+      <div class="row gy-4">
+        <% @courses.each do |course| %>
+        <div class="col-md-4">
+          <%= link_to course_path(course), alt: course.title.downcase, class: "text-decoration-none" do %>
+          <div class="card">
+            <%= image_tag(course.image.url, class: "img-fluid rounded-top") %>
+            <div class="card-body text-center">
+              <h2 class="my-2"><%= course.title %></h2>
+              <p>
+                <strong>End date</strong>: <%= course.end_date %>
+              </p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,26 @@
+<div class="card mb-4">
+  <div class="card-body text-center">
+    <h4 class="fw-bold"><%= course.title %></h4>
+    <strong>End date</strong>: <%= course.end_date %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <% if content.present? %>
+      <div class="card mt-3">
+        <div class="card-header bg-white">
+          <h4 class="my-2"><%= content.title %></h4>
+        </div>
+        <div class="card-body">
+          <video controls class="responsive-video">
+            <source src="<%= asset_path(content.video.url) %>" type="<%= content.video.content_type %>">
+          </video>
+        </div>
+      </div>
+    <% else %>
+      <h4>Description</h4>
+      <%= course.description.gsub("\n", "<br>").html_safe %>
+    <% end %>
+  </div>
+</div>
