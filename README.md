@@ -32,5 +32,7 @@ bundle
 
 bundle exec rspec
 
+rails dev:setup
+
 foreman start -f Procfile.dev
 ```
