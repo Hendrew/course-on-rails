@@ -50,7 +50,7 @@ module Backoffice
       redirect_to backoffice_courses_url, notice: "Course deleted successfully."
     end
 
-    # POST /backoffice/courses/download_report
+    # GET /backoffice/courses/download_report
     def download_report
       case Courses::Report.new(format: params[:report_format]).call
       in { data:, filename:, type: }
